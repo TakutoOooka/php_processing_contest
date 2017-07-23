@@ -1,0 +1,47 @@
+div#header {
+  position: fixed !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #4E9ABE;
+  color: #fff;
+}
+
+.navbar {
+  position: fixed !important;
+  position: absolute;
+  list-style: none;
+  overflow: hidden;
+}
+
+.navbar #title_tag {
+  color: #777;
+}
+
+.navbar li {
+  float: left;
+  border-right: 1px solid #DDD;
+}
+
+.navbar li a {
+  display: block;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+}
+
+.navbar li a span {
+  display: block;
+  margin: 3px 0 0 0;
+  color: #AAA;
+  text-transform: uppercase;
+  font-size: 80%;
+  letter-spacing: 1px;
+}
+
+.navbar li a:hover {
+  background: #DDD;
+}

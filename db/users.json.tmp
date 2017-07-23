@@ -1,0 +1,17 @@
+{
+  "schema": {
+    "id": 0,
+    "login_id": "none",
+    "encrypted_passwd": "none",
+    "name": "none",
+    "icon_uri": "none",
+    "sign_in_count": 0,
+    "last_sign_in_at": "0000-00-00 00:00:00",
+    "created_at": "0000-00-00 00:00:00",
+    "updated_at": "0000-00-00 00:00:00"
+  },
+  "auto_increment": {
+    "id": 1
+  },
+  "records": []
+}
