@@ -117,6 +117,8 @@ class Dispatcher
                 $schema_routes = explode('/', $route['route']);
                 if (isset($this->params['route'])) {
                     $url_routes = explode('/', $this->params['route']);
+                } else {
+                    $url_routes = array('');
                 }
 
                 if (count($schema_routes) == count($url_routes)) {
