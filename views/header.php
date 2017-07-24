@@ -31,7 +31,7 @@ if (isset($_SESSION['user_id'])) {
         </a>
     </li>
     <li>
-        <a href="?route=product">
+        <a href="?route=product/show_my_products">
             <strong>ユーザー作品一覧</strong>
             <span>my products</span>
         </a>

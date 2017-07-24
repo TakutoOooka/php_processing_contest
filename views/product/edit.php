@@ -55,7 +55,7 @@ function send_image_binary(blob) {
 </script>
 
 <form action="index.php" method="POST" enctype="multipart/form-data">
-  <input type="hidden" name="route" value="product" /> <?php // ?route=user ?>
+  <input type="hidden" name="route" value="product/<?=$params['id']?>/update" /> <?php // ?route=product ?>
   <input type="hidden" name="image_name" value="<?=$_SESSION['user_id']?>"> <?php // temp image file name ?>
   <div>
     <canvas id="canvas0" width="200px" height="200px">

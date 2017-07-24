@@ -1,5 +1,6 @@
 var Pjs = new Array(1);
-function stop(num) { // not work
+function stop() { // not work
+  num = 0;
   if (Pjs[num]) Pjs[num].exit();
 }
 

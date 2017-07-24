@@ -3,28 +3,30 @@ class UserController
 {
     private $params;
     private $record;
+    private $controller;
 
     public function __construct($params)
     {
         require_once(PROJECT_ROOT . '/models/UserModel.php');
         session_start();
         $this->params = $params;
+        $this->controller = 'user';
     }
 
     public function index()
     {
         // $model = new UserModel();
-        $this->render_view('user', 'index');
+        $this->render_view('index');
     }
 
     public function show()
     {
-        $this->render_view('user', 'show');
+        $this->render_view('show');
     }
 
     public function new_action()
     {
-        $this->render_view('user', 'new_action');
+        $this->render_view('new_action');
     }
 
     public function create()
@@ -41,12 +43,12 @@ class UserController
         // recordの保存
         $user->save($new_record);
 
-        $this->render_view('user', 'create');
+        $this->render_view('create');
     }
 
     public function edit()
     {
-        $this->render_view('user', 'edit');
+        $this->render_view('edit');
     }
 
     public function update()
@@ -63,12 +65,12 @@ class UserController
 
         // recordの保存
         $user->save($edit_record);
-        $this->render_view('user', 'update');
+        $this->render_view('update');
     }
 
     public function sign_in()
     {
-        $this->render_view('user', 'sign_in');
+        $this->render_view('sign_in');
     }
 
     public function signed_in()
@@ -88,19 +90,20 @@ class UserController
             $this->params['id_failure'] = true;
         }
 
-        $this->render_view('user', 'signed_in');
+        $this->render_view('signed_in');
     }
 
     public function signed_out()
     {
         session_unset();
         session_destroy();
-        $this->render_view('user', 'signed_out');
+        $this->render_view('signed_out');
     }
 
-    function render_view($controller, $action)
+    function render_view($action)
     {
         $params = $this->params;
+        $controller = $this->controller;
         include(PROJECT_ROOT . '/views/application.php');
     }
 

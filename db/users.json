@@ -1,29 +1,29 @@
 {
-  "schema": {
-    "id": 0,
-    "sign_in_id": "none",
-    "encrypted_passwd": "none",
-    "name": "none",
-    "icon_uri": "none",
-    "sign_in_count": 0,
-    "last_sign_in_at": "0000-00-00 00:00:00",
-    "created_at": "0000-00-00 00:00:00",
-    "updated_at": "0000-00-00 00:00:00"
+  "schema":{
+    "id":0,
+    "sign_in_id":"none",
+    "encrypted_passwd":"none",
+    "name":"none",
+    "icon_uri":"none",
+    "sign_in_count":0,
+    "last_sign_in_at":"0000-00-00 00:00:00",
+    "created_at":"0000-00-00 00:00:00",
+    "updated_at":"0000-00-00 00:00:00"
   },
-  "auto_increment": {
-    "id": 2
+  "auto_increment":{
+    "id":2
   },
-  "records": [
+  "records":[
     {
-      "id": 1,
-      "sign_in_id": "takuto",
-      "encrypted_passwd": "takuto",
-      "name": "tae",
-      "icon_uri": "none",
-      "sign_in_count": 0,
-      "last_sign_in_at": "0000-00-00 00:00:00",
-      "created_at": "2017-07-23 20:19:18",
-      "updated_at": "2017-07-23 20:53:49"
+      "id":1,
+      "sign_in_id":"takuto",
+      "encrypted_passwd":"takuto",
+      "name":"takuto",
+      "icon_uri":"none",
+      "sign_in_count":0,
+      "last_sign_in_at":"0000-00-00 00:00:00",
+      "created_at":"2017-07-23 20:19:18",
+      "updated_at":"2017-07-24 09:57:02"
     }
   ]
 }

@@ -81,6 +81,7 @@ abstract class BaseModel
     {
         $this->records = $this->json_instance->get_db_array();
         $this->records = $this->records['records'];
+        return $this->records;
     }
 
     public function order_asc($order_key)

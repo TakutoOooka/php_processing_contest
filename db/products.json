@@ -9,7 +9,7 @@
     "updated_at":"0000-00-00 00:00:00"
   },
   "auto_increment":{
-    "id":2
+    "id":7
   },
   "records":[
     {
@@ -20,6 +20,51 @@
       "source_code":"void setup() {\r\nsize(200, 200);\r\nbackground(125);\r\nfill(255);\r\nnoLoop();\r\n}\r\nvoid draw() {\r\n    text(\"Hello World!\", 20, 20);\r\n}\r\n      ",
       "created_at":"2017-07-24 01:22:04",
       "updated_at":"2017-07-24 01:22:04"
+    },
+    {
+      "id":2,
+      "user_id":1,
+      "product_name":"none",
+      "image_url":"2.png",
+      "source_code":"void setup() {\r\n  size(200, 200);\r\n}\r\n\r\n  int count = 2;\r\nvoid draw() {\r\n  ellipse(count, count, count, count);\r\n  count++;\r\n}            ",
+      "created_at":"2017-07-24 14:45:35",
+      "updated_at":"2017-07-24 15:17:22"
+    },
+    {
+      "id":3,
+      "user_id":1,
+      "product_name":"none",
+      "image_url":"3.png",
+      "source_code":"void setup() {\r\n  size(200, 200);\r\n}\r\n\r\n  int count = 2;\r\nvoid draw() {\r\n  ellipse(count, count, count, count);\r\n  count++;\r\n}            ",
+      "created_at":"2017-07-24 14:48:04",
+      "updated_at":"2017-07-24 15:05:18"
+    },
+    {
+      "id":4,
+      "user_id":1,
+      "product_name":"none",
+      "image_url":"4.png",
+      "source_code":"void setup() {\r\n  size(200, 200);\r\n}\r\n\r\n  int count = 2;\r\nvoid draw() {\r\n  ellipse(count, count, count, count);\r\n  count++;\r\n}            ",
+      "created_at":"2017-07-24 15:00:42",
+      "updated_at":"2017-07-24 15:00:42"
+    },
+    {
+      "id":5,
+      "user_id":1,
+      "product_name":"none",
+      "image_url":"5.png",
+      "source_code":"void setup() {\r\n  size(200, 200);\r\n}\r\n\r\n  int count = 2;\r\nvoid draw() {\r\n  ellipse(count, count, count, count);\r\n  count++;\r\n}            ",
+      "created_at":"2017-07-24 15:03:18",
+      "updated_at":"2017-07-24 15:03:18"
+    },
+    {
+      "id":6,
+      "user_id":1,
+      "product_name":"none",
+      "image_url":"6.png",
+      "source_code":" \r\nint num = 6000;\r\n\r\nfloat[] x01 = new float[num];\r\nfloat[] y01 = new float[num];\r\nfloat[] z01 = new float[num];\r\nfloat[] x02 = new float[num];\r\nfloat[] y02 = new float[num];\r\nfloat[] z02 = new float[num];\r\nfloat[] deg01 = new float[num];\r\nfloat[] deg02 = new float[num];\r\nfloat rot_x;\r\nfloat rot_y;\r\nfloat rot_z;\r\nfloat amp01;\r\nfloat amp02;\r\nfloat range;\r\n\r\nvoid setup () {\r\n\r\n    \/\/\u30c7\u30d5\u30a9\u30eb\u30c8\u306e\u7403\u9762\u306e\u534a\u5f84\r\n    amp01 = 200.0;\r\n\r\n    rot_x = 0.0;\r\n    rot_y = 0.0;\r\n    rot_z = 0.0;\r\n\r\n    range = 4.0;\r\n\r\n    size (500,500, P3D);\r\n    colorMode (RGB, 256);\r\n    background (0);\r\n    frameRate (60);\r\n\r\n    for (int i = 0; i < num; i++) {\r\n\r\n        \/\/\u7403\u9762\u306e\u5ea7\u6a19\u3092\u5f97\u308b\u70ba\u306b2\u3064\u306e\u89d2\u5ea6\u3092\u7528\u610f\r\n        deg01[i] = random (360);\r\n        deg02[i] = random (360);\r\n\r\n    }\r\n\r\n    for (int i = 0; i < num; i++) {\r\n\r\n        \/\/2\u3064\u306e\u89d2\u5ea6\u304b\u3089\u7403\u9762\u4e0a\u306e\u5ea7\u6a19\u3092\u8a08\u7b97\r\n        x01[i] = amp01 * cos (radians (deg01[i])) * sin (radians (deg02[i]));\r\n        y01[i] = amp01 * sin (radians (deg01[i]));\r\n        z01[i] = amp01 * cos (radians (deg01[i])) * cos (radians (deg02[i]));\r\n\r\n    }\r\n\r\n}\r\n\r\nvoid draw () {\r\n\r\n    background (0);\r\n\r\n    \/\/\u30ab\u30e1\u30e9\u306e\u8a2d\u5b9a\r\n    camera (mouseX - (width \/ 2), mouseY - (height \/ 2), 0.0,\r\n            width \/ 2, height \/ 2, 0.0,\r\n            0.0, 1.0, 0.0);\r\n\r\n    translate (width \/ 2, height \/ 2);\r\n    rotateX (radians (rot_x));\r\n    rotateY (radians (rot_y));\r\n    rotateZ (radians (rot_z));\r\n\r\n    for (int i = 0; i < num; i++) {\r\n\r\n        \/\/\u30de\u30a6\u30b9\u306e\u4f4d\u7f6e\u3092\u53d6\u5f97\r\n        float offsetx = mouseX - (width \/ 2);\r\n        float offsety = mouseY - (height \/ 2);\r\n\r\n        \/\/\u30de\u30a6\u30b9\u306e\u4f4d\u7f6e\u3068\u7403\u9762\u4e0a\u5ea7\u6a19\u3068\u306e\u5dee\u3092\u8a08\u7b97\r\n        float diffx = abs (offsetx - x01[i]);\r\n        float diffy = abs (offsety - y01[i]);\r\n\r\n        \/\/\u4e0a\u306e\u5dee\u306b\u57fa\u3065\u3044\u3066\u91dd\u306e\u9577\u3055\u3092\u8a08\u7b97\uff08\u7279\u306b\u516c\u5f0f\u306f\u306a\u304f\u3044\u3044\u611f\u3058\u306b\u306a\u308b\u3088\u3046\u306b\uff09\r\n        amp02 = (4000 \/ (diffx + diffy + 1)) + amp01 + 1;\r\n\r\n        \/\/\u91dd\u304c\u4f38\u3073\u305f\u5148\u306e\u5ea7\u6a19\u3092\u7814\u947d\r\n        x02[i] = amp02 * cos (radians (deg01[i])) * sin (radians (deg02[i]));\r\n        y02[i] = amp02 * sin (radians (deg01[i]));\r\n        z02[i] = amp02 * cos (radians (deg01[i])) * cos (radians (deg02[i]));\r\n\r\n        stroke (int (abs (x01[i])), int (abs (y01[i])), int (abs (z01[i])));\r\n        strokeWeight (1);\r\n        noFill ();\r\n        \/\/\u7403\u9762\u4e0a\u306e\u5ea7\u6a19\u304b\u3089\u91dd\u306e\u5148\u306e\u5ea7\u6a19\u307e\u3067\u7dda\u3092\u63cf\u304f\r\n        line (x01[i], y01[i], z01[i], x02[i], y02[i], z02[i]);\r\n\r\n    }\r\n\r\n    rot_x += map (mouseY, 0, height, -range, range);\r\n    rot_y += map (mouseX, 0, width, -range, range);\r\n    rot_z += ((map (mouseY, 0, height, -range, range) + map (mouseX, 0, width, -range, range)) \/ 2);\r\n\r\n    \/\/saveFrame ();\r\n\r\n}",
+      "created_at":"2017-07-24 15:15:09",
+      "updated_at":"2017-07-24 15:15:09"
     }
   ]
 }

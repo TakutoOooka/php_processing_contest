@@ -15,7 +15,6 @@ define("VIEW_ROOT", PROJECT_ROOT . '/views');
 <body>
     <?php include(VIEW_ROOT . '/header.php') ?>
   <div id='content-area'>
-
     <?php include(VIEW_ROOT . '/' . $controller . '/' . $action . '.php') ?>
   </div>
     <?php include(VIEW_ROOT . '/footer.php'); ?>

@@ -12,19 +12,21 @@ class ProductController
 
     public function index()
     {
-        $this->render_view('review', 'index');
+        $product = new ProductModel();
+        $this->params['all_products'] = $product->all();
+        $this->render_view('index');
     }
 
     public function show()
     {
         $product = new ProductModel();
         $this->params['show_product'] = $product->find_by('id', $this->params['id']);
-        $this->render_view('product', 'show');
+        $this->render_view('show');
     }
 
     public function new_action()
     {
-        $this->render_view('product', 'new_action');
+        $this->render_view('new_action');
     }
 
     function create()
@@ -43,24 +45,37 @@ class ProductController
         $new_product['image_url'] = $new_product['id'] . '.png';
         $new_product['source_code'] = $source_code;
         $product->save($new_product);
-        $this->render_view('product', 'create');
+        $this->render_view('create');
     }
 
     function edit()
     {
         $product = new ProductModel();
         $this->params['edit_data'] = $product->find_by('id', $this->params['id']);
-        $this->render_view('product', 'edit');
+        $this->render_view('edit');
     }
 
     function update()
     {
-        $this->render_view('product', 'update');
+        $source_code = $this->params['source_code'];
+        if (isset($this->params['product_name'])) {
+            $product_name = $this->params['product_name'];
+        } else {
+            $product_name = 'none';
+        }
+        $product = new ProductModel();
+        $edit_product = $product->find_by('id', $this->params['id']);
+        $edit_product['product_name'] = $product_name;
+        // ajaxで送られてきていた一時的な仮画像ファイルの名前を規則に則って変更
+        rename(PROJECT_ROOT . "/images/". $_SESSION["user_id"] . "_user_id.png", PROJECT_ROOT . "/images/" . $edit_product["id"] . ".png");
+        $edit_product['source_code'] = $source_code;
+        $product->save($edit_product);
+        $this->render_view('update');
     }
 
+    // ajaxで送られてくる画像ファイルを受け取り保存するためのメソッド
     function receive_pic()
     {
-        $this->params;
         if (is_uploaded_file($_FILES["acceptImage"]["tmp_name"])) {
             $filename = $this->params['id'] . '_user_id.png';
             if (move_uploaded_file($_FILES["acceptImage"]["tmp_name"], PROJECT_ROOT . '/images/' . $filename)) {
@@ -74,8 +89,16 @@ class ProductController
         }
     }
 
-    private function render_view($controller, $action)
+    function show_my_products()
     {
+        $product = new ProductModel();
+        $this->params['my_products'] = $product->select('user_id == '.$_SESSION['user_id']);
+        $this->render_view('show_my_products');
+    }
+
+    private function render_view($action)
+    {
+        $controller = $this->controller;
         $params = $this->params;
         include(PROJECT_ROOT . '/views/application.php');
     }

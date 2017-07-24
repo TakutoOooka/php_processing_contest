@@ -31,6 +31,7 @@ class Dispatcher
         array('GET',    'product/_id/edit', 'product#edit'),
         array('POST',    'product/_id/update',      'product#update'),
         array('GET', 'product/_id/delete',      'product#delete'),
+        array('GET', 'product/show_my_products', 'product#show_my_products'),
         /* sending processing screen shot for ajax */
         array('POST',    'product/receive_pic',          'product#receive_pic'),
         /* review controller actions */
