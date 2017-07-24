@@ -1,12 +1,12 @@
 <?php
-class ProductController
+include(PROJECT_ROOT . '/library/BaseController.php');
+class ProductController extends BaseController
 {
-    private $params;
-    private $controller = 'product';
     function __construct($params)
     {
+        parent::__construct($params);
+        $this->controller = 'product';
         require_once(PROJECT_ROOT . '/models/ProductModel.php');
-        $this->params = $params;
     }
 
     public function index()
@@ -93,12 +93,5 @@ class ProductController
         $product = new ProductModel();
         $this->params['my_products'] = $product->select('user_id == ' . $_COOKIE['user_id']);
         $this->render_view('show_my_products');
-    }
-
-    private function render_view($action)
-    {
-        $controller = $this->controller;
-        $params = $this->params;
-        include(PROJECT_ROOT . '/views/application.php');
     }
 }

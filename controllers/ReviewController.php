@@ -1,13 +1,11 @@
 <?php
-class ReviewController
+include(PROJECT_ROOT . '/library/BaseController.php');
+class ReviewController extends BaseController
 {
-    private $params;
-    private $controller;
-
     public function __construct($params)
     {
+        parent::__construct($params);
         $this->controller = 'review';
-        $this->params = $params;
     }
     function index()
     {
@@ -42,12 +40,5 @@ class ReviewController
     function delete()
     {
         $this->render_view('delete');
-    }
-
-    private function render_view($controller, $action)
-    {
-        $params = $this->params;
-        $controller = $this->controller;
-        include(PROJECT_ROOT . '/views/application.php');
     }
 }

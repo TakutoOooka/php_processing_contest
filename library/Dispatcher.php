@@ -158,8 +158,8 @@ class Dispatcher
             $controller_instance->$action();
         } else {
             require(PROJECT_ROOT . '/controllers/HomeController.php');
-            $controller_instance = new HomeController($this->params);
-            $controller_instance->not_found_action_method();
+            $not_found_instance = new HomeController($this->params);
+            $not_found_instance->not_found_action_method();
         }
     }
 }

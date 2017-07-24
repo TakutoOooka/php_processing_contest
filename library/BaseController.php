@@ -1,23 +1,26 @@
 <?php
 
-abstract class ControllerBase
+abstract class BaseController
 {
-    public $param;
+    protected $params;
+    protected $controller;
 
     // コンストラクタ
-    public function __construct()
+    public function __construct($params)
     {
-        $this->sys_root = dirname(__FILE__) . "/..";
-    }
-
-    // ビューの初期化
-    protected function render_view($controller, $action)
-    {
-        include($sys_root . '/view/application.php');
+        $this->params = $params;
     }
 
     // 全画面共通処理
     protected function pre_common_action()
     {
+    }
+
+    // // ビューの初期化
+    protected function render_view($action)
+    {
+        $params = $this->params;
+        $controller = $this->controller;
+        include(PROJECT_ROOT . '/views/application.php');
     }
 }

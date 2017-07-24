@@ -1,4 +1,4 @@
-<div><?php echo $params['show_product']['name']?></div>
+<div><?php echo $params['show_product']['product_name']?></div>
 
 <script src="assets/js/processing.min.js"></script>
 <script src="assets/js/processing_helper.js"></script>

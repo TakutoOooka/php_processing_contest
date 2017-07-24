@@ -1,20 +1,18 @@
 <?php
-class UserController
+include(PROJECT_ROOT . '/library/BaseController.php');
+class UserController extends BaseController
 {
-    private $params;
     private $record;
-    private $controller;
 
     public function __construct($params)
     {
-        require_once(PROJECT_ROOT . '/models/UserModel.php');
-        $this->params = $params;
+        parent::__construct($params);
         $this->controller = 'user';
+        require_once(PROJECT_ROOT . '/models/UserModel.php');
     }
 
     public function index()
     {
-        // $model = new UserModel();
         $this->render_view('index');
     }
 
@@ -82,7 +80,7 @@ class UserController
             if ($user_record['encrypted_passwd'] == $this->h($this->params['passwd'])) {
                 $this->params['success_session'] = true;
                 $_COOKIE['user_id'] = $user_record['id'];
-                setcookie('user_id', $user_record['id'], time()+3600);
+                setcookie('user_id', $user_record['id'], time()+12*3600); // Cookieは12時間持続
             } else {
                 $this->params['passwd_failure'] = true;
             }
@@ -99,16 +97,9 @@ class UserController
         $this->render_view('signed_out');
     }
 
-    function render_view($action)
-    {
-        $params = $this->params;
-        $controller = $this->controller;
-        include(PROJECT_ROOT . '/views/application.php');
-    }
-
     function generate_token()
     {
-    // セッションIDからハッシュを生成
+        // セッションIDからハッシュを生成
         return hash('sha256', session_id());
     }
 

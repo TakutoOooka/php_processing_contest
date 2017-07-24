@@ -1,14 +1,11 @@
 <?php
-
-class HomeController
+include(PROJECT_ROOT . '/library/BaseController.php');
+class HomeController extends BaseController
 {
-    private $params;
-    private $controller;
-
     public function __construct($params)
     {
+        parent::__construct($params);
         $this->controller = 'home';
-        $this->params = $params;
     }
 
     public function index()
@@ -20,11 +17,5 @@ class HomeController
     {
         // show html
         $this->render_view('not_found_action_method');
-    }
-
-    private function render_view($action)
-    {
-        $controller = $this->controller;
-        include(PROJECT_ROOT . '/views/application.php');
     }
 }
