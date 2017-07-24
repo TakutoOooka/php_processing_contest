@@ -33,7 +33,6 @@ class Dispatcher
         /* sending processing screen shot for ajax */
         array('POST',    'product/receive_pic',          'product#receive_pic'),
         /* review controller actions */
-        array('GET',    'review',            'review#index'),
         array('GET',    'review/_id',        'review#show'),
         array('GET',    'review/new',        'review#new_action'),
         array('POST',   'review',            'review#create'),

@@ -7,10 +7,6 @@ class ReviewController extends BaseController
         parent::__construct($params);
         $this->controller = 'review';
     }
-    function index()
-    {
-        $this->render_view('index');
-    }
 
     function show()
     {

@@ -78,9 +78,11 @@ class UserController extends BaseController
 
         if ($user_record = $user->find_by('sign_in_id', $this->h($this->params['sign_in_id']) )) {
             if ($user_record['encrypted_passwd'] == $this->h($this->params['passwd'])) {
+                // ユーザー認証成功処理
                 $this->params['success_session'] = true;
-                $_COOKIE['user_id'] = $user_record['id'];
-                setcookie('user_id', $user_record['id'], time()+12*3600); // Cookieは12時間持続
+                $user_record['last_sign_in_at'] = date('Y-m-d H:i:s');
+                $user->save($user_record);
+                setcookie('user_id', $user_record['id'], time()+3600); // Cookieは12時間持続
             } else {
                 $this->params['passwd_failure'] = true;
             }
