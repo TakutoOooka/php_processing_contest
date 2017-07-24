@@ -115,7 +115,9 @@ class Dispatcher
             if ($route['http_method'] == $_SERVER['REQUEST_METHOD']) {
                 // 'user/_id'と'user/3'を/で分割しその配列に対して全て比較をする
                 $schema_routes = explode('/', $route['route']);
-                $url_routes = explode('/', $this->params['route']);
+                if (isset($this->params['route'])) {
+                    $url_routes = explode('/', $this->params['route']);
+                }
 
                 if (count($schema_routes) == count($url_routes)) {
                     $success = true;
