@@ -6,7 +6,6 @@ class ProductController
     function __construct($params)
     {
         require_once(PROJECT_ROOT . '/models/ProductModel.php');
-        session_start();
         $this->params = $params;
     }
 
@@ -39,9 +38,9 @@ class ProductController
         }
         $product = new ProductModel();
         $new_product = $product->new_record();
-        $new_product['user_id'] = $_SESSION['user_id'];
+        $new_product['user_id'] = $_COOKIE['user_id'];
         $new_product['product_name'] = $product_name;
-        rename(PROJECT_ROOT . "/images/". $_SESSION["user_id"] . "_user_id.png", PROJECT_ROOT . "/images/" . $new_product["id"] . ".png");
+        rename(PROJECT_ROOT . "/images/". $_COOKIE["user_id"] . "_user_id.png", PROJECT_ROOT . "/images/" . $new_product["id"] . ".png");
         $new_product['image_url'] = $new_product['id'] . '.png';
         $new_product['source_code'] = $source_code;
         $product->save($new_product);
@@ -67,7 +66,7 @@ class ProductController
         $edit_product = $product->find_by('id', $this->params['id']);
         $edit_product['product_name'] = $product_name;
         // ajaxで送られてきていた一時的な仮画像ファイルの名前を規則に則って変更
-        rename(PROJECT_ROOT . "/images/". $_SESSION["user_id"] . "_user_id.png", PROJECT_ROOT . "/images/" . $edit_product["id"] . ".png");
+        rename(PROJECT_ROOT . "/images/". $_COOKIE["user_id"] . "_user_id.png", PROJECT_ROOT . "/images/" . $edit_product["id"] . ".png");
         $edit_product['source_code'] = $source_code;
         $product->save($edit_product);
         $this->render_view('update');
@@ -92,7 +91,7 @@ class ProductController
     function show_my_products()
     {
         $product = new ProductModel();
-        $this->params['my_products'] = $product->select('user_id == '.$_SESSION['user_id']);
+        $this->params['my_products'] = $product->select('user_id == ' . $_COOKIE['user_id']);
         $this->render_view('show_my_products');
     }
 

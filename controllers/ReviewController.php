@@ -6,7 +6,6 @@ class ReviewController
 
     public function __construct($params)
     {
-        session_start();
         $this->controller = 'review';
         $this->params = $params;
     }

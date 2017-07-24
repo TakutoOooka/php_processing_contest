@@ -7,7 +7,6 @@ class HomeController
 
     public function __construct($params)
     {
-        session_start();
         $this->controller = 'home';
         $this->params = $params;
     }

@@ -8,7 +8,6 @@ class UserController
     public function __construct($params)
     {
         require_once(PROJECT_ROOT . '/models/UserModel.php');
-        session_start();
         $this->params = $params;
         $this->controller = 'user';
     }
@@ -82,7 +81,8 @@ class UserController
         if ($user_record = $user->find_by('sign_in_id', $this->h($this->params['sign_in_id']) )) {
             if ($user_record['encrypted_passwd'] == $this->h($this->params['passwd'])) {
                 $this->params['success_session'] = true;
-                $_SESSION['user_id'] = $user_record['id'];
+                $_COOKIE['user_id'] = $user_record['id'];
+                setcookie('user_id', $user_record['id'], time()+3600);
             } else {
                 $this->params['passwd_failure'] = true;
             }
@@ -95,8 +95,7 @@ class UserController
 
     public function signed_out()
     {
-        session_unset();
-        session_destroy();
+        setcookie('user_id', '', time() - 1800);
         $this->render_view('signed_out');
     }
 

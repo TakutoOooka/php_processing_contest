@@ -1,8 +1,8 @@
 <?php
 require_once(PROJECT_ROOT . '/models/UserModel.php');
-if (isset($_SESSION['user_id'])) {
+if (isset($_COOKIE['user_id'])) {
     $user = new UserModel();
-    $user->find_by('id', $_SESSION['user_id']);
+    $user->find_by('id', $_COOKIE['user_id']);
 }
 ?>
 <link href='assets/css/header.css' rel='stylesheet' type='text/css'>
@@ -17,9 +17,9 @@ if (isset($_SESSION['user_id'])) {
             <span>home</span>
         </a>
     </li>
-    <?php if (isset($_SESSION['user_id'])) : ?>
+    <?php if (isset($_COOKIE['user_id'])) : ?>
     <li>
-        <a href="?route=user/<?=$_SESSION['user_id']?>">
+        <a href="?route=user/<?=$_COOKIE['user_id']?>">
             <strong>マイページ</strong>
             <span>my page</span>
         </a>

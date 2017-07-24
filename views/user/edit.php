@@ -1,7 +1,7 @@
 
-<?php if ($_SESSION['user_id'] == $params['id']) : ?>
+<?php if ($_COOKIE['user_id'] == $params['id']) : ?>
 <?php $user = new UserModel();
-$current_user = $user->find_by('id', $_SESSION['user_id']);
+$current_user = $user->find_by('id', $_COOKIE['user_id']);
 ?>
 <h1>ユーザー情報編集画面</h1>
 
