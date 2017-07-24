@@ -37,7 +37,7 @@ function send_image_binary(blob) {
   var formData = new FormData();
   formData.append('acceptImage', blob);
   formData.append('route', 'product/receive_pic');
-  formData.append('id', <?=$_COOKIE['user_id']?>);
+  formData.append('id', <?php echo $_COOKIE['user_id']?>);
 
   $.ajax({
     type: 'POST',
@@ -55,13 +55,13 @@ function send_image_binary(blob) {
 </script>
 
 <form action="index.php" method="POST" enctype="multipart/form-data">
-  <input type="hidden" name="route" value="product/<?=$params['id']?>/update" /> <?php // ?route=product ?>
-  <input type="hidden" name="image_name" value="<?=$_COOKIE['user_id']?>"> <?php // temp image file name ?>
+  <input type="hidden" name="route" value="product/<?php echo $params['id']?>/update" /> <?php // ?route=product ?>
+  <input type="hidden" name="image_name" value="<?php echo $_COOKIE['user_id']?>"> <?php // temp image file name ?>
   <div>
     <canvas id="canvas0" width="200px" height="200px">
     </canvas>
     <textarea id="source_code" name='source_code' cols="50px" rows="10">
-<?=$params['edit_data']['source_code']?>
+<?php echo $params['edit_data']['source_code']?>
       </textarea>
   </div>
   <div>

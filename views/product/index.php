@@ -1,6 +1,6 @@
 <?php foreach ($params['all_products'] as $product) { ?>
 <div>
-    <p><?=$product['product_name']?></p>
-    <a href='?route=product/<?=$product['id']?>'><img src='images/<?=$product['image_url']?>'></a>
+    <p><?php echo $product['product_name']?></p>
+    <a href='?route=product/<?php echo $product['id']?>'><img src='images/<?php echo $product['image_url']?>'></a>
 </div>
 <?php } ?>

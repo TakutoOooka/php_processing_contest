@@ -19,7 +19,7 @@ if (isset($_COOKIE['user_id'])) {
     </li>
     <?php if (isset($_COOKIE['user_id'])) : ?>
     <li>
-        <a href="?route=user/<?=$_COOKIE['user_id']?>">
+        <a href="?route=user/<?php echo $_COOKIE['user_id']?>">
             <strong>マイページ</strong>
             <span>my page</span>
         </a>

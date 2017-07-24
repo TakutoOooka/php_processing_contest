@@ -1,4 +1,4 @@
-<div><?=$params['show_product']['name']?></div>
+<div><?php echo $params['show_product']['name']?></div>
 
 <script src="assets/js/processing.min.js"></script>
 <script src="assets/js/processing_helper.js"></script>
@@ -6,7 +6,7 @@
 
 <div>
   <canvas id="canvas0" width="200px" height="200px">
-    <?=$params['show_product']['source_code']?>
+    <?php echo $params['show_product']['source_code']?>
   </canvas>
 </div>
 <div>
@@ -16,6 +16,6 @@
 
 <?php if ($_COOKIE['user_id'] == $params['show_product']['user_id']) :?>
     <div>
-      <a href='?route=product/<?=$params['id']?>/edit'>編集する</a>
+      <a href='?route=product/<?php echo $params['id']?>/edit'>編集する</a>
     </div>
 <?php endif ?>
