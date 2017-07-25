@@ -1,0 +1,15 @@
+.main-contents {
+  margin: 0 auto;
+  padding-top: 40px;
+  width: 95%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.main-contents .products {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 95%;
+  height: 45%;
+  background-color: #aaa;
+}

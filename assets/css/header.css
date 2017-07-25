@@ -1,47 +1,67 @@
-div#header {
-  position: fixed !important;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background-color: #4E9ABE;
-  color: #fff;
-}
-
 .navbar {
+  width: 100%;
+  height: 10%;
   position: fixed !important;
   position: absolute;
   list-style: none;
   overflow: hidden;
+  background-color: #ff6347;
+}
+
+.navbar .left-contents {
+  float: left;
+  height: 100%;
+  width: 40%;
+  position: relative;
 }
 
 .navbar #title_tag {
   color: #777;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform : translateY(-50%);
+  transform : translateY(-50%);
+  left: 10%;
 }
 
-.navbar li {
+.navbar .right-contents {
+  height: 100%;
+  width: 50%;
+  float: right;
+}
+
+.navbar .right-contents li {
+  height: 100%;
   float: left;
   border-right: 1px solid #DDD;
+  list-style: none;
 }
 
-.navbar li a {
+.navbar .right-contents li a {
+  font-weight: 100;
   display: block;
-  padding: 10px 15px;
+  padding: 30px 15px;
   text-align: center;
   text-decoration: none;
-  color: #333;
+  color: #fff;
 }
 
-.navbar li a span {
+.navbar .right-contents li a strong {
+  font-weight: 100;
+  font-size: 120%;
+}
+
+.navbar .right-contents li a span {
   display: block;
   margin: 3px 0 0 0;
-  color: #AAA;
+  color: #fff;
   text-transform: uppercase;
-  font-size: 80%;
+  font-size: 40%;
   letter-spacing: 1px;
+  font-weight: 200;
 }
 
-.navbar li a:hover {
+.navbar .right-contents li a:hover {
   background: #DDD;
 }
