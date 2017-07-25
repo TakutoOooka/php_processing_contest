@@ -91,7 +91,8 @@ class ProductController extends BaseController
     function show_my_products()
     {
         $product = new ProductModel();
-        $this->params['my_products'] = $product->select('user_id == ' . $_COOKIE['user_id']);
+        $product->select('user_id == ' . $_COOKIE['user_id']);
+        $this->params['my_products'] = $product->order_desc('updated_at');
         $this->render_view('show_my_products');
     }
 }

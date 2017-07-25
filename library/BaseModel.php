@@ -91,6 +91,7 @@ abstract class BaseModel
         }
 
         array_multisort($sort, SORT_ASC, $this->records);
+        return $this->records;
     }
 
     public function order_desc($order_key)
@@ -100,6 +101,16 @@ abstract class BaseModel
         }
 
         array_multisort($sort, SORT_DESC, $this->records);
+        return $this->records;
+    }
+
+    public function limit($limit_n)
+    {
+        if (count($this->records) > $limit_n) {
+            return array_splice($this->records, 0, $limit_n-1);
+        } else {
+            return $this->records;
+        }
     }
 
     public function new_record()

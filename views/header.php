@@ -9,7 +9,9 @@ if (isset($_COOKIE['user_id'])) {
 
 <div class="navbar">
     <div class='left-contents'>
-      <div id='title_tag'><span>Processing Contest</span></div>
+      <div id='title_tag'>
+        <img src='assets/image/title.png'></img>
+      </div>
     </div>
 
     <div class='right-contents'>
