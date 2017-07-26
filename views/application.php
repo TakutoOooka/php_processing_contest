@@ -9,6 +9,7 @@ define("VIEW_ROOT", PROJECT_ROOT . '/views');
   <title>Processing Contest!</title>
   <script src='assets/js/jquery-3.2.1.min.js'></script>
   <script src='assets/js/application.js'></script>
+  <script src='assets/js/sha512.js'></script>
   <link href='assets/css/reset.css' rel='stylesheet' type='text/css'>
   <link href="assets/css/application.css" rel="stylesheet" type="text/css">
 </head>

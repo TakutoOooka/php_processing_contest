@@ -1,4 +1,4 @@
-<? include(PROJECT_ROOT . '/views/product/_processing_exec.php'); ?>
+<?php include(PROJECT_ROOT . '/views/product/_processing_exec.php'); ?>
 
 <link href='assets/css/product/common.css' rel='stylesheet' type='text/css'>
 <link href='assets/css/product/development.css' rel='stylesheet' type='text/css'>

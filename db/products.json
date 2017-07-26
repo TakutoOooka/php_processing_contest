@@ -9,7 +9,7 @@
     "updated_at":"0000-00-00 00:00:00"
   },
   "auto_increment":{
-    "id":14
+    "id":16
   },
   "records":[
     {
@@ -128,6 +128,24 @@
       "source_code":"int NUM = 500; \/\/\u914d\u5217\u306e\u6570\r\nPVector[] location = new PVector[NUM]; \/\/\u4f4d\u7f6e\u306e\u30d9\u30af\u30c8\u30eb\u306e\u914d\u5217\r\nPVector[] velocity = new PVector[NUM]; \/\/\u901f\u5ea6\u306e\u30d9\u30af\u30c8\u30eb\u306e\u914d\u5217\r\ncolor[] col = new color[NUM]; \/\/\u5857\u308a\u306e\u8272\u306e\u914d\u5217\r\nfloat[] diameter = new float[NUM]; \/\/\u5186\u306e\u5927\u304d\u3055(\u76f4\u5f84)\u306e\u914d\u5217<\/p>\r\n\r\nvoid setup() {\r\nsize(1500, 500); \/\/640x480pixel\u306e\u753b\u9762\u3092\u751f\u6210\r\nframeRate(60); \/\/\u30d5\u30ec\u30fc\u30e0\u30ec\u30fc\u30c8\r\nnoStroke();\r\nfor (int i = 0; i < NUM; i++) { \/\/\u914d\u5217\u306e\u6570\u3060\u3051\u7e70\u308a\u8fd4\u3057\r\nlocation[i] = new PVector(random(width), random(height)); \/\/\u4f4d\u7f6e\u306e\u30d9\u30af\u30c8\u30eb\u306e\u521d\u671f\u8a2d\u5b9a\r\nvelocity[i] = new PVector(random(-4, 4), random(-4, 4)); \/\/\u901f\u5ea6\u306e\u30d9\u30af\u30c8\u30eb\u306e\u521d\u671f\u8a2d\u5b9a\r\ncol[i] = color(random(255), random(255), random(255), 127); \/\/\u8272\u306e\u521d\u671f\u8a2d\u5b9a\r\ndiameter[i] = random(3, 40); \/\/\u5927\u304d\u3055\u306e\u521d\u671f\u8a2d\u5b9a\r\n}\r\n}\r\n\r\nvoid draw() {\r\nbackground(60); \/\/\u80cc\u666f\u3092\u63cf\u753b\r\nfor (int i = 0; i < NUM; i++) { \/\/\u914d\u5217\u306e\u6570\u3060\u3051\u7e70\u308a\u8fd4\u3057\r\nfill(col[i]); \/\/\u8272\u3092\u6307\u5b9a\r\nellipse(location[i].x, location[i].y, diameter[i], diameter[i]); \/\/\u6307\u5b9a\u3057\u305f\u4f4d\u7f6e\u306b\u5186\u3092\u63cf\u753b\r\nlocation[i].add(velocity[i]); \/\/\u4f4d\u7f6e\u306e\u30d9\u30af\u30c8\u30eb\u306b\u901f\u5ea6\u306e\u30d9\u30af\u30c8\u30eb\u3092\u52a0\u7b97\u3001\u6b21\u306e\u4f4d\u7f6e\u306b\u306a\u308b\r\nif ((location[i].x > width) || (location[i].x < 0)) { \/\/\u3082\u3057\u753b\u9762\u306e\u5de6\u7aef\u3001\u307e\u305f\u306f\u53f3\u7aef\u306b\u5230\u9054\u3057\u305f\u3089\r\nvelocity[i].x *= -1; \/\/X\u65b9\u5411\u306e\u30b9\u30d4\u30fc\u30c9\u3092\u53cd\u8ee2\r\n}\r\nif ((location[i].y > height) || (location[i].y < 0)) { \/\/\u3082\u3057\u753b\u9762\u306e\u4e0b\u7aef\u3001\u307e\u305f\u306f\u4e0a\u7aef\u306b\u5230\u9054\u3057\u305f\u3089\r\nvelocity[i].y *= -1; \/\/Y\u65b9\u5411\u306e\u30b9\u30d4\u30fc\u30c9\u3092\u53cd\u8ee2\r\n}\r\n}\r\n}",
       "created_at":"2017-07-26 00:55:36",
       "updated_at":"2017-07-26 00:55:36"
+    },
+    {
+      "id":14,
+      "user_id":"1",
+      "product_name":"none",
+      "image_url":"14.png",
+      "source_code":"void setup() {\r\n  size(200, 200);\r\n}\r\n\r\nvoid draw() {\r\n  ellipse(40, 40, 40, 40);\r\n}",
+      "created_at":"2017-07-26 08:52:04",
+      "updated_at":"2017-07-26 08:52:04"
+    },
+    {
+      "id":15,
+      "user_id":"2",
+      "product_name":"none",
+      "image_url":"15.png",
+      "source_code":"ArrayList poop;\r\nint distance =50;\r\nboolean flag=true;\r\nvoid setup()\r\n{\r\n  size(500, 500);\r\n  smooth();\r\n  poop = new ArrayList();\r\n  for (int i=0;i<120;i++) {\r\n    PVector PD = new PVector(random(-150, 150), random(-150, 150));\r\n    Dots D = new Dots(PD);\r\n    poop.add(D);\r\n  }\r\n}\r\n\r\n\r\nvoid draw()\r\n{\r\n  background(255);\r\n  translate(width\/2, height\/2);\r\n  pushStyle();\r\n  fill(0);\r\n  stroke(0,50);\r\n  ellipse(0,0,400,400);\r\n  popStyle();\r\n  \/\/----------------\r\n  for (int i=0;i<poop.size();i++) {\r\n    Dots dots1 = (Dots) poop.get(i);\r\n    dots1.display();\r\n    dots1.update();\r\n    for (int j=i+1;j<poop.size();j++) {\r\n      Dots dots2 = (Dots) poop.get(j);\r\n      dots2.update();\r\n      if (dist(dots1.location.x, dots1.location.y, dots2.location.x, dots2.location.y)<distance) {\r\n        for (int k=j+1;k<poop.size();k++) {\r\n          Dots dots3 = (Dots) poop.get(k);\r\n          dots3.update();\r\n          if (flag) {\r\n            fill(dots3.c, 50);\r\n            noStroke();\r\n          }\r\n          else\r\n          {\r\n            noFill();\r\n            stroke(255,50);\r\n          }\r\n          if (dist(dots3.location.x, dots3.location.y, dots2.location.x, dots2.location.y)<distance) {\r\n            beginShape();\r\n            vertex(dots3.location.x, dots3.location.y);\r\n            vertex(dots2.location.x, dots2.location.y);\r\n            vertex(dots1.location.x, dots1.location.y);\r\n            endShape();\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n  \/\/----------------\r\n}\r\nvoid keyPressed()\r\n{\r\n  flag=!flag;\r\n}\r\nclass Dots {\r\n  PVector location;\r\n  PVector velocity;\r\n  color c;\r\n  int radius=200;\r\n  Dots(PVector _PV)\r\n  {\r\n    location = _PV;\r\n    int j = (int)random(0, 5);\r\n    if (j==0) c = color(#05CDE5);\r\n    if (j==1) c = color(#FFB803);\r\n    if (j==2) c = color(#FF035B);\r\n    if (j==3) c = color(#3D3E3E);\r\n    if (j==4) c = color(#D60FFF);\r\n    float xt = random(-0.01, 0.01);\r\n    float yt = random(-0.01, 0.01);\r\n    velocity = new PVector(xt, yt );\r\n  }\r\n\r\n  void display()\r\n  {\r\n    fill(c);\r\n    noStroke();\r\n    ellipse(location.x, location.y, 2, 2);\r\n  }\r\n  void update()\r\n  {\r\n    if (dist(location.x, location.y, 0, 0)>radius) {\r\n      velocity.mult(-1);\r\n      location.add(velocity);\r\n    }\r\n    else {\r\n      location.add(velocity);\r\n    }\r\n  }\r\n}",
+      "created_at":"2017-07-26 09:27:06",
+      "updated_at":"2017-07-26 09:27:06"
     }
   ]
 }

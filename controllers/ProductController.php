@@ -1,5 +1,8 @@
 <?php
 include(PROJECT_ROOT . '/library/BaseController.php');
+include(PROJECT_ROOT . '/models/ProductModel.php');
+include(PROJECT_ROOT . '/models/ReviewModel.php');
+
 class ProductController extends BaseController
 {
     function __construct($params)
@@ -20,6 +23,9 @@ class ProductController extends BaseController
     {
         $product = new ProductModel();
         $this->params['show_product'] = $product->find_by('id', $this->params['id']);
+
+        $review = new ReviewModel();
+        $this->params['reviews'] = $review->select('product_id == ' . $this->params['show_product']['id']);
         $this->render_view('show');
     }
 

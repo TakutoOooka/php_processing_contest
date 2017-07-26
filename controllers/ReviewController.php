@@ -1,5 +1,6 @@
 <?php
 include(PROJECT_ROOT . '/library/BaseController.php');
+include(PROJECT_ROOT . '/models/ReviewModel.php');
 class ReviewController extends BaseController
 {
     public function __construct($params)
@@ -20,6 +21,14 @@ class ReviewController extends BaseController
 
     function create()
     {
+        $review = new ReviewModel();
+        $new_review = $review->new_record();
+        $new_review['product_id'] = intval( $this->params['product_id'] );
+        $new_review['user_id'] = intval( $this->params['user_id'] );
+        $new_review['rating'] = intval( $this->params['rating'] );
+        $new_review['review'] = $this->params['review'];
+        $review->save($new_review);
+
         $this->render_view('create');
     }
 

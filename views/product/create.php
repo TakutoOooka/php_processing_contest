@@ -8,3 +8,10 @@
 <div class='main-content'>
   作品を投稿しました
 </div>
+
+<script>
+  function redirect(){
+      location.href='?route=home';
+  }
+  setTimeout("redirect()", 2000);
+</script>
